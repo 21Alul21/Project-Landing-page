@@ -1,0 +1,37 @@
+{% extends 'base.html' %} 
+
+ {% block styles %}<link rel="stylesheet" href="{{ url_for('static', filename='/styles/forms.css') }}"> {% endblock styles %}
+
+
+{% block body %}
+<header>
+  <nav>
+    <ul>
+      <li class="home">
+        <a class="home-link" href="{{ url_for('home') }}">HOME</a>
+      </li>
+      <li class="about-me"><a style="color: white; text-decoration: none;" href="{{ url_for('about_me') }}">ABOUT ME</a> </li>
+    </ul>
+  </nav>
+</header>
+
+<form action="" method="post">
+  <div class="form-content">
+    <legend><h1>Sign Up</h1></legend>
+    {{ form.hidden_tag() }}
+    
+    {{ form.username(placeholder='username') }} <br />
+    {{ form.email(placeholder='email') }} <br />
+    {{ form.password(placeholder='password') }} <br />
+  {{ form.password_again(placeholder='password again') }}
+    <br />
+    <fieldset>
+    {{ form.remember_me(id='checkbox') }} <label for="checkbox">I agree with the terms of use</label>
+    </fieldset>
+
+    <br />
+    <br />
+    {{ form.submit(placeholder='REGISTER') }}<br />
+  </div>
+</form>
+{% endblock body %}
